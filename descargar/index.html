@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Descarga La 1RA</title>
+  <meta name="description" content="Descarga la app La 1RA: consulta y gestiona tus trámites de tránsito (multas, licencias, vehículos, SOAT y tecnomecánica)." />
+  <style>
+    :root {
+      --rojo: #FC0000;
+      --negro: #111111;
+      --gris: #6E6E6E;
+      --linea: #ececec;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--negro);
+      background: #fff;
+      line-height: 1.6;
+    }
+    .barra { height: 6px; background: linear-gradient(90deg, var(--negro) 0 40%, var(--rojo) 40% 60%, var(--negro) 60% 100%); }
+    header {
+      background: var(--negro);
+      color: #fff;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    header .marca { font-size: 26px; font-weight: 800; letter-spacing: .5px; }
+    header .marca b { color: var(--rojo); }
+    header .sub { color: #cfcfcf; margin-top: 6px; font-size: 14px; }
+    main {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      text-align: center;
+    }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    p.desc { color: var(--gris); font-size: 15px; margin: 0 0 32px; }
+    .botones { display: flex; flex-direction: column; gap: 14px; }
+    .boton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      border: 2px solid var(--negro);
+      color: var(--negro);
+    }
+    .boton:hover { background: #f5f5f5; }
+    .boton.principal { background: var(--negro); color: #fff; }
+    .boton.principal:hover { background: #000; }
+    .redirigiendo { color: var(--gris); font-size: 14px; margin-top: 28px; }
+    footer { border-top: 1px solid var(--linea); text-align: center; color: var(--gris); font-size: 13px; padding: 24px 20px 40px; margin-top: 20px; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0e0e0e; color: #ececec; }
+      p.desc, .redirigiendo, footer { color: #9a9a9a; }
+      .boton { border-color: #ececec; color: #ececec; }
+      .boton:hover { background: #1c1c1c; }
+      footer { border-color: #262626; }
+    }
+  </style>
+</head>
+<body>
+  <div class="barra"></div>
+  <header>
+    <div class="marca">ASESORÍAS <b>LA 1RA</b></div>
+    <div class="sub">Trámites de tránsito en tu celular</div>
+  </header>
+
+  <main>
+    <h1>Descarga La 1RA</h1>
+    <p class="desc">Consulta multas, licencias, vehículos, SOAT y tecnomecánica desde tu celular.</p>
+
+    <div class="botones">
+      <a class="boton principal" id="btn-ios" href="https://apps.apple.com/co/app/la-1ra-tr%C3%A1mites-de-tr%C3%A1nsito/id6796143288">Descargar en App Store</a>
+      <a class="boton principal" id="btn-android" href="https://play.google.com/store/apps/details?id=com.la1ra.app">Descargar en Google Play</a>
+    </div>
+
+    <div class="redirigiendo" id="redirigiendo" hidden>Abriendo la tienda de tu celular…</div>
+  </main>
+
+  <footer>© Asesorías La 1RA · Contacto: Asesoriaslaprimera1@gmail.com</footer>
+
+  <script>
+    (function () {
+      var ua = navigator.userAgent || '';
+      var esIOS = /iPhone|iPad|iPod/i.test(ua);
+      var esAndroid = /Android/i.test(ua);
+      var appStore = document.getElementById('btn-ios').href;
+      var playStore = document.getElementById('btn-android').href;
+
+      if (esIOS || esAndroid) {
+        document.getElementById('redirigiendo').hidden = false;
+        window.location.replace(esIOS ? appStore : playStore);
+      }
+    })();
+  </script>
+</body>
+</html>
